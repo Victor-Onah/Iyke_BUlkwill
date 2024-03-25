@@ -6,13 +6,13 @@ const About = () => {
 			id="about"
 			className="flex bg-blue-600 text-white max-[960px]:flex-col"
 		>
-			<div className="min-w-[540px]">
+			<div className="max-[960px]:min-w-[540px]">
 				<Image
 					alt="Iyke Bulkwill"
 					src={"/images/iyke-bulkwill.jpg"}
 					height={720}
 					width={540}
-                    className="w-full"
+					className="max-w-full"
 				/>
 			</div>
 			<div className="flex flex-col justify-center p-4 gap-4">

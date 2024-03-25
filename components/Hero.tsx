@@ -122,7 +122,7 @@ const Hero = () => {
 				{products.solarPanels.map((product: ProductCardProps, index: number) =>
 					index <= 2 ? (
 						<ProductCard
-							className="w-60 min-w-60 snap-always snap-end h-fit"
+							className="w-60 min-w-60 snap-always snap-center h-fit"
 							image_thumbnail_path={
 								"https://www-konga-com-res.cloudinary.com/w_200,f_auto,fl_lossy,dpr_1.0,q_auto/media/catalog/product" +
 								product.image_thumbnail_path
