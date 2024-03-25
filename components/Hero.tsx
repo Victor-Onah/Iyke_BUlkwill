@@ -40,7 +40,7 @@ const Hero = () => {
 			4000
 		);
 		return () => clearInterval(interval);
-	}, []);
+	}, [slides.length]);
 	useEffect(() => {
 		const { current: sliderContainer } = slider;
 		const width = sliderContainer?.clientWidth as number;
