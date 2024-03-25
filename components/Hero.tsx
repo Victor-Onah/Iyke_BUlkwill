@@ -90,12 +90,12 @@ const Hero = () => {
 						</div>
 					))}
 					{currentSlide > 1 && (
-						<span
+						<button
 							onClick={() => setCurrentSlide(currentSlide - 1)}
 							className="cursor-pointer absolute top-1/2 left-4 bg-white p-4 rounded-full scale-95 transition-transform block -translate-y-1/2 bg-opacity-50"
 						>
 							<FaAngleLeft />
-						</span>
+						</button>
 					)}
 					{currentSlide < slides.length && (
 						<span
@@ -108,6 +108,7 @@ const Hero = () => {
 					<div className="absolute bottom-4 left-1/2 bg-white p-1 rounded-full -translate-x-1/2 bg-opacity-50 flex justify-center items-center gap-1">
 						{slides.map((slide, index) => (
 							<button
+								key={index}
 								onClick={() => setCurrentSlide(index + 1)}
 								className={`${
 									currentSlide === index + 1 ? "bg-blue-600" : "bg-zinc-600"
