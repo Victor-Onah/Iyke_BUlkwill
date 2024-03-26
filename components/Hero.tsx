@@ -56,14 +56,14 @@ const Hero = () => {
 					{slides.map((slide, index) => (
 						<div
 							key={slide.imgUrl}
-							className="relative min-w-full flex-1 flex justify-center items-center"
+							className="relative min-w-full flex-1 flex justify-center items-center max-h-[400px]"
 						>
 							<Image
 								alt={slide.title}
 								src={slide.imgUrl}
 								title={slide.title}
 								width={1240}
-								height={720}
+								height={400}
 								className="w-full  aspect-[16_/_9]"
 							/>
 							<div className="absolute bg-black bg-opacity-50 inset-0 flex justify-center items-center text-center flex-col gap-4 p-4 transition-transform">
@@ -81,10 +81,10 @@ const Hero = () => {
 										currentSlide == index + 1
 											? "translate-y-0 opacity-100"
 											: "translate-y-full opacity-0"
-									} bg-blue-500 text-white rounded-md p-4 active:scale-95 [transition:_1.2s_linear_all]`}
+									} bg-blue-500 text-white rounded-md px-4 py-1 active:scale-95 [transition:_1.2s_linear_all]`}
 									href={slide.imgUrl}
 								>
-									Get Started
+									Explore
 								</Link>
 							</div>
 						</div>

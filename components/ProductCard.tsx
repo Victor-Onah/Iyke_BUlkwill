@@ -17,7 +17,7 @@ const ProductCard = ({
 				src={image_thumbnail_path}
 				alt={name}
 				width={350}
-				height={750}
+				height={350}
 			/>
 			<div>
 				<div className="flex flex-col gap-2 mt-4">

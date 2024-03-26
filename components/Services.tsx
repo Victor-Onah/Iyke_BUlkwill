@@ -6,7 +6,7 @@ const Services = () => {
 		<div id="services" className="my-24">
 			<h2 className="mb-6 font-bold text-4xl text-center">Our Services</h2>
 			<div className="grid grid-cols-3 max-sm:grid-cols-1 max-lg:grid-cols-2 p-4 gap-x-6 gap-y-8 m-auto justify-center">
-				<div className="bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
+				<div className="bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
 					<Image
 						height={400}
 						width={400}
@@ -28,7 +28,7 @@ const Services = () => {
 						</p>
 					</div>
 				</div>
-				<div className="bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
+				<div className="bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
 					<Image
 						height={400}
 						width={400}
@@ -44,7 +44,7 @@ const Services = () => {
 						</p>
 					</div>
 				</div>
-				<div className="bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
+				<div className="bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
 					<Image
 						height={400}
 						width={400}
@@ -65,7 +65,7 @@ const Services = () => {
 						</p>
 					</div>
 				</div>
-				<div className="bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
+				<div className="bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
 					<Image
 						height={400}
 						width={400}
@@ -81,7 +81,7 @@ const Services = () => {
 						</p>
 					</div>
 				</div>
-				<div className="bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
+				<div className="bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
 					<Image
 						height={400}
 						width={400}
@@ -101,7 +101,7 @@ const Services = () => {
 						</p>
 					</div>
 				</div>
-				<div className="bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
+				<div className="bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full overflow-hidden text-center p-4">
 					<Image
 						height={400}
 						width={400}

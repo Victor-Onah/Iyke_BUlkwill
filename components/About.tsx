@@ -5,7 +5,7 @@ const About = () => {
 	return (
 		<div
 			id="about"
-			className="flex bg-blue-600 text-white max-[1020px]:flex-col"
+			className="flex bg-blue-600 text-white max-[1020px]:flex-col overflow-x-hidden"
 		>
 			<div className="w-full min-w-96 max-w-screen-lg">
 				<Image
@@ -13,7 +13,7 @@ const About = () => {
 					src={"/images/iyke-bulkwill.jpg"}
 					height={720}
 					width={540}
-					className="w-full min-w-full block max-w-sm h-full"
+					className="w-full min-w-full max-w-sm h-full"
 				/>
 			</div>
 			<div className="flex flex-col justify-center p-4 gap-4">
