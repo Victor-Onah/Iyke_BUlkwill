@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import Header from "./Header";
 import products from "../lib/products.json";
 import { createContext } from "react";
+import Footer from "./Footer";
 
 const inter = Inter({
 	weight: "400",
@@ -21,6 +22,7 @@ export default function RootLayout({
 			<div style={inter.style}>
 				<Header />
 				<div className="max-w-[1480px] m-auto">{children}</div>
+				<Footer />
 			</div>
 		</GlobalContext.Provider>
 	);

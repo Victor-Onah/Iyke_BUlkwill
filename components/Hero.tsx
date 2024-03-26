@@ -71,8 +71,8 @@ const Hero = () => {
 									className={`${
 										currentSlide == index + 1
 											? "translate-y-0 opacity-100"
-											: "translate-y-9 opacity-0"
-									} font-bold text-white text-4xl  transition-transform`}
+											: "translate-y-full opacity-0"
+									} font-bold text-white text-4xl [transition:_1.2s_linear_all]`}
 								>
 									{slide.title}
 								</h2>
@@ -80,8 +80,8 @@ const Hero = () => {
 									className={`${
 										currentSlide == index + 1
 											? "translate-y-0 opacity-100"
-											: "translate-y-9 opacity-0"
-									} bg-blue-500 text-white rounded-md p-4 active:scale-95 transition-transform`}
+											: "translate-y-full opacity-0"
+									} bg-blue-500 text-white rounded-md p-4 active:scale-95 [transition:_1.2s_linear_all]`}
 									href={slide.imgUrl}
 								>
 									Get Started
@@ -118,11 +118,11 @@ const Hero = () => {
 					</div>
 				</div>
 			</div>
-			<div className="flex max-w-full overflow-auto snap-x snap-mandatory gap-8 mt-24 mb-4">
+			<div className="flex max-w-full overflow-auto snap-x snap-mandatory gap-8 mt-24 mb-4 p-4">
 				{products.solarPanels.map((product: ProductCardProps, index: number) =>
 					index <= 2 ? (
 						<ProductCard
-							className="w-60 min-w-60 snap-always snap-center h-fit"
+							className="w-60 min-w-60 snap-always snap-center"
 							image_thumbnail_path={
 								"https://www-konga-com-res.cloudinary.com/w_200,f_auto,fl_lossy,dpr_1.0,q_auto/media/catalog/product" +
 								product.image_thumbnail_path
@@ -137,7 +137,7 @@ const Hero = () => {
 				{products.laptops.map((product: ProductCardProps, index: number) =>
 					index <= 2 ? (
 						<ProductCard
-							className="w-60 min-w-60 snap-always snap-end h-fit"
+							className="w-60 min-w-60 snap-always snap-end"
 							image_thumbnail_path={
 								"https://www-konga-com-res.cloudinary.com/w_200,f_auto,fl_lossy,dpr_1.0,q_auto/media/catalog/product" +
 								product.image_thumbnail_path
@@ -152,7 +152,7 @@ const Hero = () => {
 				{products.phones.map((product: ProductCardProps, index: number) =>
 					index <= 2 ? (
 						<ProductCard
-							className="w-60 min-w-60 snap-always snap-end h-fit"
+							className="w-60 min-w-60 snap-always snap-end"
 							image_thumbnail_path={
 								"https://www-konga-com-res.cloudinary.com/w_200,f_auto,fl_lossy,dpr_1.0,q_auto/media/catalog/product" +
 								product.image_thumbnail_path
@@ -167,7 +167,7 @@ const Hero = () => {
 				{products.chandeliers.map((product: ProductCardProps, index: number) =>
 					index <= 2 ? (
 						<ProductCard
-							className="w-60 min-w-60 snap-always snap-end h-fit"
+							className="w-60 min-w-60 snap-always snap-end"
 							image_thumbnail_path={
 								"https://www-konga-com-res.cloudinary.com/w_200,f_auto,fl_lossy,dpr_1.0,q_auto/media/catalog/product" +
 								product.image_thumbnail_path
@@ -182,7 +182,7 @@ const Hero = () => {
 				{products.homeLights.map((product: ProductCardProps, index: number) =>
 					index <= 2 ? (
 						<ProductCard
-							className="w-60 min-w-60 snap-always snap-end h-fit"
+							className="w-60 min-w-60 snap-always snap-end"
 							image_thumbnail_path={
 								"https://www-konga-com-res.cloudinary.com/w_200,f_auto,fl_lossy,dpr_1.0,q_auto/media/catalog/product" +
 								product.image_thumbnail_path
