@@ -33,7 +33,8 @@ const Hero = () => {
 	];
 	const [currentSlide, setCurrentSlide] = useState<number>(1);
 	const slider = useRef<HTMLDivElement>(null);
-	const { products } = useContext(GlobalContext);
+	const { products, dispatch } = useContext(GlobalContext);
+
 	useEffect(() => {
 		const interval = setInterval(
 			() => setCurrentSlide((prev) => (prev >= slides.length ? 1 : prev + 1)),
@@ -131,6 +132,7 @@ const Hero = () => {
 							price={product.price}
 							product_id={product.product_id}
 							key={product.name}
+							description={product.description}
 						/>
 					) : undefined
 				)}
@@ -146,6 +148,7 @@ const Hero = () => {
 							price={product.price}
 							product_id={product.product_id}
 							key={product.name}
+							description={product.description}
 						/>
 					) : undefined
 				)}
@@ -161,6 +164,7 @@ const Hero = () => {
 							price={product.price}
 							product_id={product.product_id}
 							key={product.name}
+							description={product.description}
 						/>
 					) : undefined
 				)}
@@ -176,6 +180,7 @@ const Hero = () => {
 							price={product.price}
 							product_id={product.product_id}
 							key={product.name}
+							description={product.description}
 						/>
 					) : undefined
 				)}
@@ -191,6 +196,7 @@ const Hero = () => {
 							price={product.price}
 							product_id={product.product_id}
 							key={product.name}
+							description={product.description}
 						/>
 					) : undefined
 				)}
