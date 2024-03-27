@@ -22,7 +22,7 @@ const Cart = () => {
 				</div>
 				<div>
 					{cart.length > 0 ? (
-						cart.map((item) => <CartItem {...{ ...item }} />)
+						cart.map((item) => <CartItem key={item.name} {...{ ...item }} />)
 					) : (
 						<h3 className="text-zinc-400 text-lg text-center py-12 px-4">
 							No item in cart
