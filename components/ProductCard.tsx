@@ -28,9 +28,9 @@ const ProductCard = ({
 			/>
 			<div>
 				<div className="flex flex-col gap-2 mt-4">
-					<h3 className="text-center font-semibold text-blue-500">
+					<p className="text-center font-semibold text-blue-500">
 						<Link href={"/listing/" + product_id}>{name}</Link>
-					</h3>
+					</p>
 					<p className="font-bold text-center">₦{price.toLocaleString()}</p>
 				</div>
 				<button

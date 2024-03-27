@@ -7,7 +7,7 @@ import { GlobalContext } from "./Layout";
 
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-	const { cart } = useContext(GlobalContext);
+	const { cart, setIsCartVisible } = useContext(GlobalContext);
 	return (
 		<div
 			role="banner"
@@ -55,7 +55,10 @@ const Header = () => {
 									Listings
 								</Link>
 							</li>
-							<button className="flex items-center gap-1 bg-blue-100 px-4 py-1 rounded-full">
+							<button
+								onClick={() => setIsCartVisible(true)}
+								className="flex items-center gap-1 bg-blue-100 px-4 py-1 rounded-full"
+							>
 								<BiCart /> {cart.length}
 							</button>
 						</ul>
@@ -66,7 +69,10 @@ const Header = () => {
 				<Logo />
 				<div>
 					<nav role="navigation" className="flex gap-4">
-						<button className="flex items-center gap-1 bg-blue-100 px-4 py-1 rounded-full">
+						<button
+							onClick={() => setIsCartVisible(true)}
+							className="flex items-center gap-1 bg-blue-100 px-4 py-1 rounded-full"
+						>
 							<BiCart /> {cart.length}
 						</button>
 						<button

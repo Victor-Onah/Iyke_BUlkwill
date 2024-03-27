@@ -1,11 +1,11 @@
 import { Inter } from "next/font/google";
 import Header from "./Header";
 import products from "../lib/products.json";
-import { Dispatch, createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import Footer from "./Footer";
 import reducer from "@/utils/reducer";
-import { Cart, GlobalContextProps } from "..";
-
+import { GlobalContextProps } from "..";
+import Cart from "./Cart";
 const inter = Inter({
 	weight: "400",
 	subsets: ["latin"],
@@ -22,6 +22,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	const [cart, dispatch] = useReducer(reducer, []);
+	const [isCartVisible, setIsCartVisible] = useState<boolean>(false);
 
 	useEffect(() => {
 		const savedCart = localStorage.getItem("cart");
@@ -35,11 +36,14 @@ export default function RootLayout({
 	}, [cart]);
 
 	return (
-		<GlobalContext.Provider value={{ products, cart, dispatch }}>
+		<GlobalContext.Provider
+			value={{ products, cart, dispatch, isCartVisible, setIsCartVisible }}
+		>
 			<div style={inter.style}>
 				<Header />
 				<div className="max-w-[1480px] m-auto">{children}</div>
 				<Footer />
+				{isCartVisible && <Cart />}
 			</div>
 		</GlobalContext.Provider>
 	);
