@@ -9,7 +9,7 @@ const Cart = () => {
 	return (
 		<div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-md z-50 flex justify-center items-center p-4">
 			<div className="w-full min-h-96 bg-white max-w-2xl rounded-md shadow-lg relative max-h-[99%] overflow-auto">
-				<div className="sticky top-0 bg-white">
+				<div className="sticky top-0 bg-white z-50">
 					<button
 						onClick={() => setIsCartVisible(false)}
 						className="absolute z-50 right-0 h-8 w-8 bg-zinc-200 flex rounded-full m-2 justify-center items-center active:scale-95"
@@ -32,7 +32,11 @@ const Cart = () => {
 				{cart.length > 0 && (
 					<div className="flex flex-col gap-6 p-4">
 						<button
-							onClick={() => dispatch({ type: "empty_cart", payload: "" })}
+							onClick={() =>
+								confirm("Are you sure you want to clear your cart?")
+									? dispatch({ type: "empty_cart", payload: "" })
+									: null
+							}
 							className="px-4 py-2 rounded-md bg-red-500 text-white flex-1 active:scale-95"
 						>
 							Clear cart
