@@ -8,7 +8,7 @@ const Cart = () => {
 
 	return (
 		<div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-md z-50 flex justify-center items-center p-4">
-			<div className="w-full min-h-96 bg-white max-w-2xl rounded-md shadow-lg relative max-h-[80%] overflow-auto">
+			<div className="w-full min-h-96 bg-white max-w-2xl rounded-md shadow-lg relative max-h-[99%] overflow-auto">
 				<div className="sticky top-0 bg-white">
 					<button
 						onClick={() => setIsCartVisible(false)}

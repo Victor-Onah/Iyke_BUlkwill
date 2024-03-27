@@ -57,7 +57,7 @@ const Header = () => {
 							</li>
 							<button
 								onClick={() => setIsCartVisible(true)}
-								className="flex items-center gap-1 bg-blue-100 px-4 py-1 rounded-full"
+								className="flex items-center gap-1 bg-blue-100 px-4 py-1 rounded-full active:scale-95"
 							>
 								<BiCart /> {cart.length}
 							</button>
@@ -71,7 +71,7 @@ const Header = () => {
 					<nav role="navigation" className="flex gap-4">
 						<button
 							onClick={() => setIsCartVisible(true)}
-							className="flex items-center gap-1 bg-blue-100 px-4 py-1 rounded-full"
+							className="flex items-center gap-1 bg-blue-100 px-4 py-1 rounded-full active:scale-95"
 						>
 							<BiCart /> {cart.length}
 						</button>
