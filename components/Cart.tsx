@@ -4,7 +4,7 @@ import { GlobalContext } from "./Layout";
 import CartItem from "./CartItem";
 
 const Cart = () => {
-	const { cart, setIsCartVisible } = useContext(GlobalContext);
+	const { cart, setIsCartVisible, dispatch } = useContext(GlobalContext);
 
 	return (
 		<div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-md z-50 flex justify-center items-center p-4">
@@ -29,6 +29,19 @@ const Cart = () => {
 						</h3>
 					)}
 				</div>
+				{cart.length > 0 && (
+					<div className="flex flex-col gap-6 p-4">
+						<button
+							onClick={() => dispatch({ type: "empty_cart", payload: "" })}
+							className="px-4 py-2 rounded-md bg-red-500 text-white flex-1 active:scale-95"
+						>
+							Clear cart
+						</button>
+						<button className="px-4 py-2 rounded-md bg-blue-500 text-white flex-1 active:scale-95">
+							Checkout
+						</button>
+					</div>
+				)}
 			</div>
 		</div>
 	);

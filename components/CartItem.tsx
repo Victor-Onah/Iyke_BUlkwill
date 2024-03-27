@@ -21,7 +21,22 @@ const CartItem = (props: ProductCardProps) => {
 				<p className="font-bold text-blue-500">{props.name}</p>
 				<p className="font-black">₦{props.price.toLocaleString()}</p>
 				<div className="flex items-center gap-2">
-					<button className="bg-red-500 text-white px-4 py-1 rounded-md active:scale-95">
+					<button
+						onClick={() =>
+							dispatch({
+								type: "update_product_quantity",
+								payload: {
+									quantity:
+										Number.isInteger(props.quantity) &&
+										Number(props.quantity) > 1
+											? Number(props.quantity) - 1
+											: 1,
+									id: props.product_id,
+								},
+							})
+						}
+						className="bg-red-500 text-white px-4 py-1 rounded-md active:scale-95"
+					>
 						<BiMinus />
 					</button>
 					<input
@@ -39,7 +54,22 @@ const CartItem = (props: ProductCardProps) => {
 						type="number"
 						min={1}
 					/>
-					<button className="bg-green-500 text-white px-4 py-1 rounded-md active:scale-95">
+					<button
+						onClick={() =>
+							dispatch({
+								type: "update_product_quantity",
+								payload: {
+									quantity:
+										Number.isNaN(props.quantity) ||
+										!Number.isInteger(props.quantity)
+											? 1
+											: Number(props.quantity) + 1,
+									id: props.product_id,
+								},
+							})
+						}
+						className="bg-green-500 text-white px-4 py-1 rounded-md active:scale-95"
+					>
 						<BiPlus />
 					</button>
 				</div>
