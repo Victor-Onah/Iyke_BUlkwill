@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import reducer from "@/utils/reducer";
 import { GlobalContextProps } from "..";
 import Cart from "./Cart";
+import shuffledProducts from '../lib/shuffledProducts.json'
 const inter = Inter({
 	weight: "400",
 	subsets: ["latin"],
@@ -37,7 +38,7 @@ export default function RootLayout({
 
 	return (
 		<GlobalContext.Provider
-			value={{ products, cart, dispatch, isCartVisible, setIsCartVisible }}
+			value={{ products, cart, dispatch, isCartVisible, setIsCartVisible, shuffledProducts }}
 		>
 			<div style={inter.style}>
 				<Header />

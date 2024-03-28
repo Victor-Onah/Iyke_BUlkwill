@@ -26,6 +26,7 @@ export type GlobalContextProps<P> = {
 	products: P;
 	cart: Cart;
 	dispatch: Dispatch<ReducerAction>;
-    isCartVisible: boolean
-    setIsCartVisible: Dispatch<SetStateAction<boolean>>
+	isCartVisible: boolean;
+	setIsCartVisible: Dispatch<SetStateAction<boolean>>;
+	shuffledProducts: ProductCardProps[];
 };

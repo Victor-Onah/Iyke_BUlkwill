@@ -46,7 +46,7 @@ const ProductCard = ({
 							},
 						})
 					}
-					className="px-4 py-2 rounded-sm bg-blue-500 flex justify-center items-center text-white w-full active:scale-95 transition-transform mt-4"
+					className="px-4 py-2 rounded-sm bg-blue-500 flex justify-center items-center text-white w-full active:scale-95 transition-transform mt-4 whitespace-nowrap flex-nowrap"
 				>
 					Add to cart <BiCartAdd />
 				</button>
