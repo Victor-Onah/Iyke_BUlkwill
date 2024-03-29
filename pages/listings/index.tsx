@@ -7,13 +7,20 @@ import { useContext, useState } from "react";
 
 const Index = () => {
 	const { shuffledProducts } = useContext(GlobalContext);
+	const [currentCategory, setCurrentCategory] = useState("");
 	const [searching, setSearching] = useState<boolean>(false);
 
 	return (
 		<div>
 			<Carousel />
-			<Search setSearching={setSearching} searching={searching} />
-			{searching || <ProductsList data={shuffledProducts} />}
+			<Search
+				getCurrentCategory={(value: string) => setCurrentCategory(value)}
+				setSearching={setSearching}
+				searching={searching}
+			/>
+			{!searching && !currentCategory && (
+				<ProductsList data={shuffledProducts} />
+			)}
 		</div>
 	);
 };

@@ -1,6 +1,5 @@
 import ProductCard from "./ProductCard";
-import { useContext, useEffect, useState } from "react";
-import { GlobalContext } from "./Layout";
+import { useEffect, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { ProductCardProps } from "..";
 
@@ -16,7 +15,7 @@ const ProductsList = ({ data }: { data: ProductCardProps[] }) => {
 	return (
 		<>
 			<div className="grid grid-cols-6 gap-6 px-4 py-8 max-xl:grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-xs:grid-cols-1 max-xs:text-xs">
-				{data.map(
+				{data.length > 0 ? data.map(
 					(product, index) =>
 						index >= (currentPage - 1) * 24 &&
 						index < currentPage * 24 && (
@@ -30,7 +29,7 @@ const ProductsList = ({ data }: { data: ProductCardProps[] }) => {
 								}}
 							/>
 						)
-				)}
+				) : <h3 className="text-center p-4 text-zinc-400">No item to show</h3>}
 			</div>
 			<div className="flex justify-center items-center gap-4 mb-8">
 				<button
