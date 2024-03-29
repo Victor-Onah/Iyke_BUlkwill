@@ -3,8 +3,7 @@ import ProductsList from "@/components/ProductsList";
 import { ProductCardProps } from "@/index";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
-import { useParams } from "next/navigation";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { BiCartAdd, BiMinus, BiPlus } from "react-icons/bi";
 import { TbShoppingCartMinus } from "react-icons/tb";
 import paths from "../../lib/paths.json";
@@ -12,16 +11,20 @@ import paths from "../../lib/paths.json";
 export const getStaticPaths = (async () => {
 	return {
 		paths: paths,
-		fallback: true,
+		fallback: false,
 	};
 }) satisfies GetStaticPaths;
 
-export const getStaticProps = (async () => {
-	return { props: {} };
-}) satisfies GetStaticProps<{}>;
+export const getStaticProps = async ({
+	params,
+}: {
+	params: { id: string };
+}) => {
+	return { props: { id: params.id } };
+};
 
-const Product = () => {
-	const { id } = useParams<{ id: string }>();
+const Product = (props: {id: string}) => {
+	const { id } = props;
 	const { cart, shuffledProducts, products, dispatch } =
 		useContext(GlobalContext);
 	const [product, setProduct] = useState<(typeof shuffledProducts)[number]>();
@@ -30,11 +33,11 @@ const Product = () => {
 	);
 	const [itemInCart, setItemInCart] = useState<ProductCardProps>();
 
-	function findProductInCart() {
+	const findProductInCart = useCallback(function () {
 		return cart.find((product) => product.product_id === id);
-	}
+	}, []);
 
-	function findProduct() {
+	const findProduct = useCallback(function () {
 		for (let category in products) {
 			for (let product of products[category as typeof productCategory]) {
 				if (product.product_id === id)
@@ -43,7 +46,7 @@ const Product = () => {
 					);
 			}
 		}
-	}
+	}, []);
 
 	useEffect(() => {
 		setProduct(findProduct());
