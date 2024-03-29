@@ -1,11 +1,20 @@
 import { GlobalContext } from "@/components/Layout";
 import ProductsList from "@/components/ProductsList";
 import { ProductCardProps } from "@/index";
+import { GetStaticPaths } from "next";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 import { BiCartAdd, BiMinus, BiPlus } from "react-icons/bi";
 import { TbShoppingCartMinus } from "react-icons/tb";
+import paths from "../../lib/paths.json";
+
+export const getStaticPaths = (async () => {
+	return {
+		paths: paths,
+		fallback: true,
+	};
+}) satisfies GetStaticPaths;
 
 const Product = () => {
 	const { id } = useParams<{ id: string }>();
@@ -150,7 +159,9 @@ const Product = () => {
 				</div>
 			)}
 			<div>
-				<h2 className="text-2xl p-4 bg-zinc-200 font-semibold my-6">Similar Products</h2>
+				<h2 className="text-2xl p-4 bg-zinc-200 font-semibold my-6">
+					Similar Products
+				</h2>
 				{products[productCategory] && (
 					<ProductsList data={products[productCategory].slice(0, 12)} />
 				)}
