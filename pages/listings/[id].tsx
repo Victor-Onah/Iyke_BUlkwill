@@ -23,7 +23,7 @@ export const getStaticProps = async ({
 	return { props: { id: params.id } };
 };
 
-const Product = (props: {id: string}) => {
+const Product = (props: { id: string }) => {
 	const { id } = props;
 	const { cart, shuffledProducts, products, dispatch } =
 		useContext(GlobalContext);
@@ -33,25 +33,29 @@ const Product = (props: {id: string}) => {
 	);
 	const [itemInCart, setItemInCart] = useState<ProductCardProps>();
 
-	const findProductInCart = useCallback(function () {
+	function findProductInCart() {
 		return cart.find((product) => product.product_id === id);
-	}, []);
+	}
 
-	const findProduct = useCallback(function () {
-		for (let category in products) {
-			for (let product of products[category as typeof productCategory]) {
-				if (product.product_id === id)
-					return (
-						setProductCategory(category as typeof productCategory), product
-					);
+	const findProduct = useCallback(
+		function () {
+			for (let category in products) {
+				for (let product of products[category as typeof productCategory]) {
+					if (product.product_id === id)
+						return (
+							setProductCategory(category as typeof productCategory), product
+						);
+				}
 			}
-		}
-	}, []);
+		},
+		[product, id]
+	);
 
 	useEffect(() => {
 		setProduct(findProduct());
 		setItemInCart(findProductInCart());
-	}, [id, cart, findProduct, findProductInCart]);
+		console.log(itemInCart);
+	}, [products, cart]);
 
 	return (
 		<div>
@@ -166,7 +170,7 @@ const Product = (props: {id: string}) => {
 				</div>
 			)}
 			<div>
-				<h2 className="text-2xl p-4 bg-zinc-200 font-semibold my-6">
+				<h2 className="text-2xl p-4 bg-zinc-200 font-semibold my-6 text-center">
 					Similar Products
 				</h2>
 				{products[productCategory] && (

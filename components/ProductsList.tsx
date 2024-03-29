@@ -25,7 +25,9 @@ const ProductsList = ({ data }: { data: ProductCardProps[] }) => {
 							index >= (currentPage - 1) * 24 &&
 							index < currentPage * 24 && (
 								<ProductCard
-									key={product.name}
+									key={
+										product.name + String(Math.random() * product.name.length)
+									}
 									{...{
 										...product,
 										image_thumbnail_path:
