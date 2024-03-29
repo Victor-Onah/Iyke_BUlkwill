@@ -1,7 +1,7 @@
 import { GlobalContext } from "@/components/Layout";
 import ProductsList from "@/components/ProductsList";
 import { ProductCardProps } from "@/index";
-import { GetStaticPaths } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
@@ -15,6 +15,10 @@ export const getStaticPaths = (async () => {
 		fallback: true,
 	};
 }) satisfies GetStaticPaths;
+
+export const getStaticProps = (async () => {
+	return { props: {} };
+}) satisfies GetStaticProps<{}>;
 
 const Product = () => {
 	const { id } = useParams<{ id: string }>();
@@ -44,7 +48,7 @@ const Product = () => {
 	useEffect(() => {
 		setProduct(findProduct());
 		setItemInCart(findProductInCart());
-	}, [id, cart]);
+	}, [id, cart, findProduct, findProductInCart]);
 
 	return (
 		<div>
