@@ -7,7 +7,7 @@ import { CgClose } from "react-icons/cg";
 import Link from "next/link";
 
 const CartItem = (props: ProductCardProps) => {
-	const { dispatch } = useContext(GlobalContext);
+	const { dispatch, setIsCartVisible } = useContext(GlobalContext);
 	return (
 		<div className="grid sm:[grid-template-columns:_0.25fr_0.75fr] max-sm:text-sm bg-white shadow-md mx-4 my-8 rounded-sm overflow-hidden gap-6 relative">
 			<button
@@ -30,7 +30,7 @@ const CartItem = (props: ProductCardProps) => {
 			</div>
 			<div className="py-4 flex flex-col gap-2 max-sm:px-4">
 				<p className="font-bold text-blue-500">
-					<Link href={`/listings/${props.product_id}`}>{props.name}</Link>
+					<Link onClick={() => setIsCartVisible(false)} href={`/listings/${props.product_id}`}>{props.name}</Link>
 				</p>
 				<p className="font-black">₦{props.price.toLocaleString()}</p>
 				<div className="flex items-stretch gap-2">

@@ -56,7 +56,7 @@ const Search = (props: {
 		} else {
 			props.setSearching(false);
 		}
-	}, [category]);
+	}, [category, products]);
 
 	useEffect(() => {
 		search();

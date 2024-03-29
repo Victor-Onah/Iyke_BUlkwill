@@ -10,7 +10,6 @@ const ProductCard = ({
 	name,
 	price,
 	product_id,
-	description,
 	className,
 }: ProductCardProps) => {
 	const { dispatch } = useContext(GlobalContext);
@@ -29,7 +28,7 @@ const ProductCard = ({
 			<div>
 				<div className="flex flex-col gap-2 mt-4">
 					<p className="text-center font-semibold text-blue-500">
-						<Link href={"/listing/" + product_id}>{name}</Link>
+						<Link href={"/listings/" + product_id}>{name}</Link>
 					</p>
 					<p className="font-bold text-center">₦{price.toLocaleString()}</p>
 				</div>
