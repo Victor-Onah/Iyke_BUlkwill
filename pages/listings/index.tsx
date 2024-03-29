@@ -6,15 +6,14 @@ import { ProductCardProps } from "@/index";
 import { useContext, useState } from "react";
 
 const Index = () => {
-	const { products } = useContext(GlobalContext);
-	const [category, setCategory] = useState<keyof typeof products>();
-	const [searchResults, setSearchResults] = useState<ProductCardProps[]>();
+	const { shuffledProducts } = useContext(GlobalContext);
+	const [searching, setSearching] = useState<boolean>(false);
 
 	return (
 		<div>
 			<Carousel />
-			<Search getSearchResults={(result) => setSearchResults(result)} />
-			<ProductsList />
+			<Search setSearching={setSearching} searching={searching} />
+			{searching || <ProductsList data={shuffledProducts} />}
 		</div>
 	);
 };

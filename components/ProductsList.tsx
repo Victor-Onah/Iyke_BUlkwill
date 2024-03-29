@@ -2,16 +2,21 @@ import ProductCard from "./ProductCard";
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "./Layout";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { ProductCardProps } from "..";
 
-const ProductsList = () => {
-	const { shuffledProducts } = useContext(GlobalContext);
-	const pages = Math.ceil(shuffledProducts.length / 24);
+const ProductsList = ({ data }: { data: ProductCardProps[] }) => {
+	const [pages, setPages] = useState(Math.ceil(data.length / 24));
 	const [currentPage, setCurrentPage] = useState(1);
+
+	useEffect(() => {
+		setCurrentPage(1);
+		setPages(Math.ceil(data.length / 24));
+	}, [data]);
 
 	return (
 		<>
 			<div className="grid grid-cols-6 gap-6 px-4 py-8 max-xl:grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-xs:grid-cols-1 max-xs:text-xs">
-				{shuffledProducts.map(
+				{data.map(
 					(product, index) =>
 						index >= (currentPage - 1) * 24 &&
 						index < currentPage * 24 && (
@@ -49,7 +54,7 @@ const ProductsList = () => {
 						window.scrollTo({ top: 0, behavior: "smooth" })
 					)}
 				>
-					<FaAngleRight /> Next
+					Next <FaAngleRight />
 				</button>
 			</div>
 		</>
