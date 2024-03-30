@@ -84,6 +84,8 @@ const Product = (props: { id: string }) => {
 				<meta name="robots" content="index, follow" />
 				<link rel="shortcut icon" href="/images/logo.png" type="image/png" />
 				<link rel="apple-touch-icon" href="/images/logo.png" type="image/png" />
+				<title>{product?.name || "Product"}</title>
+				<link rel="canonical" href="https://iyke-bulkwill.onrender.com/" />
 			</Head>
 			<div>
 				{product && (
