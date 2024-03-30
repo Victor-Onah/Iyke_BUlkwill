@@ -38,8 +38,9 @@ const Product = (props: { id: string; foundProduct: ProductCardProps }) => {
 	const { id, foundProduct } = props;
 	const { cart, shuffledProducts, products, dispatch } =
 		useContext(GlobalContext);
-	const [product] = useState<(typeof shuffledProducts)[number]>(foundProduct);
-	const [productCategory] = useState<keyof typeof products>(
+	const [product, setProduct] =
+		useState<(typeof shuffledProducts)[number]>(foundProduct);
+	const [productCategory, setProductCategory] = useState<keyof typeof products>(
 		"" as keyof typeof products
 	);
 	const [itemInCart, setItemInCart] = useState<ProductCardProps>();
@@ -48,7 +49,22 @@ const Product = (props: { id: string; foundProduct: ProductCardProps }) => {
 		return cart.find((product) => product.product_id === id);
 	}
 
+	const findProduct = useCallback(
+		function () {
+			for (let category in products) {
+				for (let product of products[category as typeof productCategory]) {
+					if (product.product_id === id)
+						return (
+							setProductCategory(category as typeof productCategory), product
+						);
+				}
+			}
+		},
+		[product, id]
+	);
+
 	useEffect(() => {
+		findProduct();
 		setItemInCart(findProductInCart());
 	}, [products, cart]);
 
