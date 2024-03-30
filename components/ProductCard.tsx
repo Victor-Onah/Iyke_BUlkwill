@@ -2,8 +2,9 @@ import Image from "next/image";
 import { ProductCardProps } from "..";
 import Link from "next/link";
 import { BiCartAdd } from "react-icons/bi";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GlobalContext } from "./Layout";
+import { CgSpinner } from "react-icons/cg";
 
 const ProductCard = ({
 	image_thumbnail_path,
@@ -13,6 +14,7 @@ const ProductCard = ({
 	className,
 }: ProductCardProps) => {
 	const { dispatch } = useContext(GlobalContext);
+	const [adding, setAdding] = useState(false);
 
 	return (
 		<div
@@ -33,21 +35,33 @@ const ProductCard = ({
 					<p className="font-bold text-center">₦{price.toLocaleString()}</p>
 				</div>
 				<button
-					onClick={() =>
-						dispatch({
-							type: "add_to_cart",
-							payload: {
-								image_thumbnail_path,
-								name,
-								price,
-								product_id,
-								quantity: 1,
-							},
-						})
-					}
+					onClick={() => {
+						setAdding(true);
+						setTimeout(() => {
+							dispatch({
+								type: "add_to_cart",
+								payload: {
+									image_thumbnail_path,
+									name,
+									price,
+									product_id,
+									quantity: 1,
+								},
+							});
+							setAdding(false);
+						}, 1500);
+					}}
 					className="px-4 py-2 rounded-sm bg-blue-500 flex justify-center items-center text-white w-full active:scale-95 transition-transform mt-4 whitespace-nowrap flex-nowrap"
 				>
-					Add to cart <BiCartAdd />
+					{adding ? (
+						<span className="animate-spin">
+							<CgSpinner />
+						</span>
+					) : (
+						<>
+							Add to cart <BiCartAdd />
+						</>
+					)}
 				</button>
 			</div>
 		</div>

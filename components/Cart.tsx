@@ -1,10 +1,11 @@
-import { useContext } from "react";
-import { CgClose } from "react-icons/cg";
+import { useContext, useState } from "react";
+import { CgClose, CgSpinner } from "react-icons/cg";
 import { GlobalContext } from "./Layout";
 import CartItem from "./CartItem";
 
 const Cart = () => {
 	const { cart, setIsCartVisible, dispatch } = useContext(GlobalContext);
+	const [checkingOut, setCheckingOut] = useState(false);
 
 	return (
 		<div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-md z-50 flex justify-center items-center p-4">
@@ -41,8 +42,29 @@ const Cart = () => {
 						>
 							Clear cart
 						</button>
-						<button className="px-4 py-2 rounded-md bg-blue-500 text-white flex-1 active:scale-95">
-							Checkout
+						<button
+							onClick={() => {
+								let text = `Good day, my name is ${
+									prompt("Please, tell us your name") || "____"
+								}. I want to place an order for the following products I found on your website.\n`;
+								for (let item of cart) {
+									text += `${item.name}:\nPrice: ₦${String(
+										item.price
+									).toLocaleString()}\nQuantity: ${item.quantity}\n\n\n`;
+								}
+								const wAppLink = `https://wa.me/2348038022220?text=${text}`;
+								setCheckingOut(true);
+								window.location.assign(wAppLink);
+							}}
+							className="px-4 py-2 rounded-md bg-blue-500 text-white flex-1 active:scale-95"
+						>
+							{checkingOut ? (
+								<span className="animate-spin">
+									<CgSpinner />
+								</span>
+							) : (
+								"Checkout"
+							)}
 						</button>
 					</div>
 				)}
