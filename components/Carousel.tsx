@@ -7,24 +7,24 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 const Carousel = () => {
 	const slides = [
 		{
-			imgUrl: "/images/solar-panels-roof-solar-cell.jpg",
+			imgUrl: "/images/solar-panels-roof-solar-cell.webp",
 			title: "Solar panels",
 		},
 		{
-			imgUrl: "/images/3072209.jpg",
+			imgUrl: "/images/3072209.webp",
 			title: "Phones and phone accessories",
 		},
 		{
-			imgUrl: "/images/electronic-device-balancing-concept.jpg",
+			imgUrl: "/images/electronic-device-balancing-concept.webp",
 			title: "Laptops and laptop accessories",
 		},
 		{
-			imgUrl: "/images/light-bulbs.jpg",
+			imgUrl: "/images/light-bulbs.webp",
 			title: "Home and security lights",
 		},
 		{
 			imgUrl:
-				"/images/elegant-modern-living-room-showcases-luxury-design-generated-by-ai.jpg",
+				"/images/elegant-modern-living-room-showcases-luxury-design-generated-by-ai.webp",
 			title: "Chandeliers and interior lights",
 		},
 	];

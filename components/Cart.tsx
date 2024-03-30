@@ -48,15 +48,23 @@ const Cart = () => {
 									prompt("Please, tell us your name") || "____"
 								}. I want to place an order for the following products I found on your website.\n`;
 								for (let item of cart) {
-									text += `${item.name}:\nPrice: ₦${String(
+									text += `\n\n- *${item.name.trim()}*\n*Price:* ₦${String(
 										item.price
-									).toLocaleString()}\nQuantity: ${item.quantity}\n\n\n`;
+									)
+										.toLocaleString()
+										.trim()}\n*Quantity:* ${
+										item.quantity
+									}\n*Sum total:* ₦${String(item.price * (item.quantity || 1))
+										.toLocaleString()
+										.trim()}`;
 								}
-								const wAppLink = `https://wa.me/2348038022220?text=${text}`;
+								const wAppLink = `https://wa.me/2348038022220?text=${encodeURI(
+									text
+								)}`;
 								setCheckingOut(true);
 								window.location.assign(wAppLink);
 							}}
-							className="px-4 py-2 rounded-md bg-blue-500 text-white flex-1 active:scale-95"
+							className="px-4 py-2 rounded-md bg-blue-500 text-white flex-1 flex justify-center items-center active:scale-95"
 						>
 							{checkingOut ? (
 								<span className="animate-spin">
