@@ -42,6 +42,11 @@ export default function Home() {
 				<meta name="robots" content="index, follow" />
 				<link rel="shortcut icon" href="/images/logo.png" type="image/png" />
 				<link rel="apple-touch-icon" href="/images/logo.png" type="image/png" />
+				<title>
+					Welcome to Iyke BulkWill Int'l Ltd. - Your Source for Sustainable
+					Living.
+				</title>
+				<link rel="canonical" href="https://iyke-bulkwill.onrender.com/" />
 			</Head>
 			<main>
 				<Hero />
