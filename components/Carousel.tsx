@@ -79,7 +79,7 @@ const Carousel = () => {
 										? "translate-y-0 opacity-100"
 										: "translate-y-full opacity-0"
 								} bg-blue-500 text-white rounded-md px-4 py-1 active:scale-95 [transition:_1.2s_linear_all]`}
-								href={slide.imgUrl}
+								href={'/listings'}
 							>
 								Explore
 							</Link>

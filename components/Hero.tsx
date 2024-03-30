@@ -92,7 +92,7 @@ const Hero = () => {
 				)}
 			</div>
 			<p className="text-right font-bold text-blue-500">
-				<Link className="justify-end flex" href={"/listing"}>
+				<Link className="justify-end flex" href={"/listings"}>
 					See more <RiArrowRightUpLine />
 				</Link>
 			</p>

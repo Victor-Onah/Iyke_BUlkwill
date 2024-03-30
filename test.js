@@ -8,7 +8,7 @@ const generateFile = async () => {
 	const paths = [];
 
 	for (let product of JSON.parse(file)) {
-		paths.push({ params: { id: product.product_id } });
+		paths.push({ params: { id: product.product_id, product } });
 	}
 
 	await fs.writeFile(

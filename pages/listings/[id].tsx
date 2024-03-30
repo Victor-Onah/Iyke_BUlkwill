@@ -8,6 +8,7 @@ import { BiCartAdd, BiMinus, BiPlus } from "react-icons/bi";
 import { TbShoppingCartMinus } from "react-icons/tb";
 import paths from "../../lib/paths.json";
 import Head from "next/head";
+import shuffledProducts from "../../lib/shuffledProducts.json";
 
 export const getStaticPaths = (async () => {
 	return {
@@ -21,15 +22,24 @@ export const getStaticProps = async ({
 }: {
 	params: { id: string };
 }) => {
-	return { props: { id: params.id } };
+	return {
+		props: {
+			id: params.id,
+			foundProduct: (function () {
+				return shuffledProducts.find(
+					(product) => product.product_id === params.id
+				);
+			})(),
+		},
+	};
 };
 
-const Product = (props: { id: string }) => {
-	const { id } = props;
+const Product = (props: { id: string; foundProduct: ProductCardProps }) => {
+	const { id, foundProduct } = props;
 	const { cart, shuffledProducts, products, dispatch } =
 		useContext(GlobalContext);
-	const [product, setProduct] = useState<(typeof shuffledProducts)[number]>();
-	const [productCategory, setProductCategory] = useState<keyof typeof products>(
+	const [product] = useState<(typeof shuffledProducts)[number]>(foundProduct);
+	const [productCategory] = useState<keyof typeof products>(
 		"" as keyof typeof products
 	);
 	const [itemInCart, setItemInCart] = useState<ProductCardProps>();
@@ -38,24 +48,8 @@ const Product = (props: { id: string }) => {
 		return cart.find((product) => product.product_id === id);
 	}
 
-	const findProduct = useCallback(
-		function () {
-			for (let category in products) {
-				for (let product of products[category as typeof productCategory]) {
-					if (product.product_id === id)
-						return (
-							setProductCategory(category as typeof productCategory), product
-						);
-				}
-			}
-		},
-		[product, id]
-	);
-
 	useEffect(() => {
-		setProduct(findProduct());
 		setItemInCart(findProductInCart());
-		console.log(itemInCart);
 	}, [products, cart]);
 
 	return (

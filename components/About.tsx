@@ -32,7 +32,7 @@ const About = () => {
 					<div>
 						<h4 className="font-semibold">Office Address 1</h4>
 						<p>
-							No. 1 Pepple Street,
+							1 Pepple Street,
 							<br />
 							Ikeja,
 							<br />
@@ -44,7 +44,7 @@ const About = () => {
 					<div>
 						<h4 className="font-semibold">Office Address 2</h4>
 						<p>
-							No. 21 Market Road,
+							21 Market Road,
 							<br />
 							GSM Village Near Fire Service,
 							<br />
