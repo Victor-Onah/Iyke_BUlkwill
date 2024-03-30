@@ -86,6 +86,10 @@ const Product = (props: { id: string }) => {
 				<link rel="apple-touch-icon" href="/images/logo.png" type="image/png" />
 				<title>{product?.name || "Product"}</title>
 				<link rel="canonical" href="https://iyke-bulkwill.onrender.com/" />
+				<title>
+					{product?.name || 'Product'}
+				</title>
+				<link rel="canonical" href="https://iyke-bulkwill.onrender.com/" />
 			</Head>
 			<div>
 				{product && (
