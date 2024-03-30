@@ -24,7 +24,7 @@ export default function Home() {
 				/>
 				<meta
 					name="og:image"
-					content="https://iyke-bulkwill.onrender.com/images/og_image.jpg"
+					content="https://iyke-bulkwill-qw1o.onrender.com/images/og_image.jpg"
 				/>
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta
@@ -37,7 +37,7 @@ export default function Home() {
 				/>
 				<meta
 					name="twitter:image"
-					content="https://iyke-bulkwill.onrender.com/images/og_image.jpg"
+					content="https://iyke-bulkwill-qw1o.onrender.com/images/og_image.jpg"
 				/>
 				<meta name="robots" content="index, follow" />
 				<link rel="shortcut icon" href="/images/logo.png" type="image/png" />
@@ -46,7 +46,7 @@ export default function Home() {
 					Welcome to Iyke BulkWill Int'l Ltd. - Your Source for Sustainable
 					Living.
 				</title>
-				<link rel="canonical" href="https://iyke-bulkwill.onrender.com/" />
+				<link rel="canonical" href="https://iyke-bulkwill-qw1o.onrender.com/" />
 			</Head>
 			<main>
 				<Hero />

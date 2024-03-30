@@ -49,7 +49,7 @@ const Index = () => {
 				/>
 				<link
 					rel="canonical"
-					href="https://iyke-bulkwill.onrender.com/listings"
+					href="https://iyke-bulkwill-qw1o.onrender.com/listings"
 				/>
 			</Head>
 			<div>
