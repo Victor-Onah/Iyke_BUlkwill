@@ -19,12 +19,9 @@ const Services = () => {
 						<p>
 							We specialize in customizing solar solutions for homes, providing
 							cost effective and eco-friendly energy options for families.
-							Businesses can also benefit from solar power too!{" "}
-							<Link className="text-blue-700" href="/listings">
-								Discover
-							</Link>{" "}
-							how we can help you reduce operational costs and enhance
-							sustainability through our commercial solar panels.
+							Businesses can also benefit from solar power too! Discover how we
+							can help you reduce operational costs and enhance sustainability
+							through our commercial solar panels.
 						</p>
 					</div>
 				</div>
@@ -57,11 +54,7 @@ const Services = () => {
 						<p>
 							We can help you find your dream house. Our real estate agents are
 							experts in providing real estate solutions for our customers. You
-							can{" "}
-							<Link className="text-blue-700" href="/contact">
-								contact us
-							</Link>{" "}
-							directly for further enquiry
+							can contact us directly for further enquiry
 						</p>
 					</div>
 				</div>
@@ -92,12 +85,8 @@ const Services = () => {
 					<div className="flex-1 flex flex-col justify-around">
 						<h3 className="font-semibold">Quality Laptops</h3>
 						<p>
-							Check out our{" "}
-							<Link className="text-blue-700" href="/listings">
-								listings page
-							</Link>{" "}
-							to find quality laptops that suite your work requirements at
-							affordable rates.
+							Check out our listings page to find quality laptops that suite
+							your work requirements at affordable rates.
 						</p>
 					</div>
 				</div>
@@ -113,11 +102,7 @@ const Services = () => {
 						<h3 className="font-semibold">Home Lights</h3>
 						<p>
 							We offer top-notch lighting for home interior decorations. You can
-							visit our{" "}
-							<Link className="text-blue-700" href="/listings">
-								listings page
-							</Link>{" "}
-							to see the ones that suit your taste.
+							visit our listings page to see the ones that suit your taste.
 						</p>
 					</div>
 				</div>
